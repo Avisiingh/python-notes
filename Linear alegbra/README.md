@@ -1,104 +1,152 @@
-# Vector Operations in Python
+Here is your complete **Markdown (`.md`) file** with properly formatted **LaTeX equations** for GitHub and Python implementations using NumPy. 🚀  
 
-## 1. Dot Product
-The dot product of two vectors A and B is given by:
-\[ A \cdot B = A_1B_1 + A_2B_2 + A_3B_3 \]
+Copy and paste this directly into your `.md` file:  
+
+---
+
+```md
+# **Vector Operations and Implementation in Python**
+
+This document covers important vector operations, including their mathematical formulas and Python implementations using `NumPy`.
+
+---
+
+## **1. Norm of a Vector (Magnitude)**  
+The norm (or magnitude) of a vector **A** is given by:  
+
+$$ ||A|| = \sqrt{A_1^2 + A_2^2 + A_3^2} $$
 
 ### **Python Implementation:**
 ```python
 import numpy as np
-A = np.array([4, -3, 5])
-B = np.array([-2, 6, 1])
-dot_product = np.dot(A, B)
-print("Dot Product:", dot_product)
-```
 
----
-
-## 2. Norm (Magnitude) of a Vector
-The norm of a vector A is given by:
-\[ ||A|| = \sqrt{A_1^2 + A_2^2 + A_3^2} \]
-
-### **Python Implementation:**
-```python
+A = np.array([3, 4, 12])  # Example vector
 norm_A = np.linalg.norm(A)
 print("Norm of A:", norm_A)
 ```
 
 ---
 
-## 3. Angle Between Two Vectors
-Using the cosine rule:
-\[ \cos\theta = \frac{A \cdot B}{||A|| \cdot ||B||} \]
+## **2. Dot Product of Two Vectors**  
+The dot product of two vectors **A** and **B** is:  
+
+$$ A \cdot B = A_1 B_1 + A_2 B_2 + A_3 B_3 $$
 
 ### **Python Implementation:**
 ```python
-norm_B = np.linalg.norm(B)
-cos_theta = dot_product / (norm_A * norm_B)
-angle = np.arccos(cos_theta)  # in radians
-angle_degrees = np.degrees(angle)
-print("Angle between A and B (degrees):", angle_degrees)
+A = np.array([3, 4, 5])
+B = np.array([1, 2, 3])
+
+dot_product = np.dot(A, B)
+print("Dot Product:", dot_product)
 ```
 
 ---
 
-## 4. Scalar Projection
-Scalar projection of A onto B:
-\[ \text{Scalar Projection} = \frac{A \cdot B}{||B||} \]
+## **3. Cosine of the Angle Between Two Vectors**  
+The cosine of the angle θ between two vectors is given by:  
+
+$$ \cos{\theta} = \frac{A \cdot B}{||A|| \times ||B||} $$
 
 ### **Python Implementation:**
 ```python
-scalar_proj = dot_product / norm_B
+cos_theta = dot_product / (np.linalg.norm(A) * np.linalg.norm(B))
+print("Cosine of the Angle:", cos_theta)
+```
+
+---
+
+## **4. Scalar Projection of A onto B**  
+The scalar projection of **A** onto **B** is:  
+
+$$ \text{proj}_B A = \frac{A \cdot B}{||B||} $$
+
+### **Python Implementation:**
+```python
+scalar_proj = dot_product / np.linalg.norm(B)
 print("Scalar Projection of A onto B:", scalar_proj)
 ```
 
 ---
 
-## 5. Vector Projection
-The vector projection of A onto B is:
-\[ \text{Vector Projection} = \left(\frac{A \cdot B}{||B||^2}\right) B \]
+## **5. Vector Projection of A onto B**  
+The vector projection of **A** onto **B** is:  
+
+$$ \text{Proj}_B A = \left(\frac{A \cdot B}{||B||^2}\right) B $$
 
 ### **Python Implementation:**
 ```python
-vector_proj = (dot_product / (norm_B ** 2)) * B
+vector_proj = (dot_product / np.linalg.norm(B)**2) * B
 print("Vector Projection of A onto B:", vector_proj)
 ```
 
 ---
 
-## 6. Unit Vector
-A unit vector in the direction of A:
-\[ \hat{A} = \frac{A}{||A||} \]
+## **6. Perpendicular Vectors Condition**  
+Two vectors **A** and **B** are **perpendicular** if their dot product is **zero**:  
+
+$$ A \cdot B = 0 \Rightarrow A \perp B $$
 
 ### **Python Implementation:**
 ```python
-unit_vector_A = A / norm_A
+if np.dot(A, B) == 0:
+    print("Vectors are perpendicular.")
+else:
+    print("Vectors are not perpendicular.")
+```
+
+---
+
+## **7. Unit Vector**  
+A **unit vector** in the direction of **A** is:  
+
+$$ \hat{A} = \frac{A}{||A||} $$
+
+### **Python Implementation:**
+```python
+unit_vector_A = A / np.linalg.norm(A)
 print("Unit Vector of A:", unit_vector_A)
 ```
 
 ---
 
-## 7. Checking Perpendicularity
-Two vectors are perpendicular if their dot product is **zero**.
+## **8. Angle Between Two Vectors (Using `arccos`)**  
+The angle **θ** between two vectors is:
+
+$$ \theta = \cos^{-1} \left(\frac{A \cdot B}{||A|| \times ||B||} \right) $$
 
 ### **Python Implementation:**
 ```python
-if np.isclose(dot_product, 0):
-    print("A and B are perpendicular")
-else:
-    print("A and B are not perpendicular")
+theta = np.arccos(cos_theta)  # Angle in radians
+theta_degrees = np.degrees(theta)  # Convert to degrees
+print("Angle between A and B in radians:", theta)
+print("Angle between A and B in degrees:", theta_degrees)
 ```
 
 ---
 
-## Summary
-| Operation | Formula | Python Function |
-|-----------|---------|----------------|
-| **Dot Product** | \( A \cdot B \) | `np.dot(A, B)` |
-| **Norm** | \( ||A|| \) | `np.linalg.norm(A)` |
-| **Angle Between Vectors** | \( \cos\theta = \frac{A \cdot B}{||A|| \cdot ||B||} \) | `np.arccos(np.dot(A, B) / (np.linalg.norm(A) * np.linalg.norm(B)))` |
-| **Scalar Projection** | \( \frac{A \cdot B}{||B||} \) | `np.dot(A, B) / np.linalg.norm(B)` |
-| **Vector Projection** | \( \left(\frac{A \cdot B}{||B||^2}\right) B \) | `(np.dot(A, B) / np.linalg.norm(B)**2) * B` |
-| **Unit Vector** | \( \frac{A}{||A||} \) | `A / np.linalg.norm(A)` |
-| **Perpendicular Check** | \( A \cdot B = 0 \) | `np.isclose(np.dot(A, B), 0)` |
+### **📌 Notes:**
+- `np.linalg.norm(A)` → Finds the **magnitude** of a vector.
+- `np.dot(A, B)` → Computes the **dot product** of two vectors.
+- `np.arccos(x)` → Computes **inverse cosine (cos⁻¹ x)** to find the **angle**.
+- `np.degrees(x)` → Converts **radians** to **degrees**.
+
+---
+
+## **📝 Summary Table of Formulas**
+| Operation | Formula |
+|-----------|---------|
+| **Norm (Magnitude)** | \( ||A|| = \sqrt{A_1^2 + A_2^2 + A_3^2} \) |
+| **Dot Product** | \( A \cdot B = A_1 B_1 + A_2 B_2 + A_3 B_3 \) |
+| **Cosine of Angle** | \( \cos{\theta} = \frac{A \cdot B}{||A|| \times ||B||} \) |
+| **Scalar Projection** | \( \frac{A \cdot B}{||B||} \) |
+| **Vector Projection** | \( \left(\frac{A \cdot B}{||B||^2}\right) B \) |
+| **Perpendicular Vectors** | \( A \cdot B = 0 \Rightarrow A \perp B \) |
+| **Unit Vector** | \( \hat{A} = \frac{A}{||A||} \) |
+| **Angle Between Vectors** | \( \theta = \cos^{-1} \left(\frac{A \cdot B}{||A|| \times ||B||} \right) \) |
+
+---
+
+
+
 
