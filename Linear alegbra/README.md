@@ -1,6 +1,3 @@
-Here is your complete **Markdown (`.md`) file** with properly formatted **LaTeX equations** for GitHub and Python implementations using NumPy. 🚀  
-
-Copy and paste this directly into your `.md` file:  
 
 ---
 
