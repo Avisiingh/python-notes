@@ -97,5 +97,127 @@ else:
 # 7. Compute the unit vector of A
 unit_vector_A = A / np.linalg.norm(A)
 print("Unit Vector of A:", unit_vector_A)
+---
+
+
+➡ **Definition:** A basis of a vector space is a set of linearly independent vectors that span the entire space.
+
+➡ **Key Points:**
+- **Linear Independence:** No vector in the set can be written as a combination of the others.
+- **Spanning:** Any vector in the space can be expressed as a linear combination of the basis vectors.
+- **Dimension:** Number of vectors in a basis defines the dimension of the space.
+
+---
+
+## **2. Basis in Different Vector Spaces**
+
+### **Standard Basis**
+➡ The most common basis in \(\mathbb{R}^n\) is the standard basis:
+\[ e_1 = (1,0,0), \quad e_2 = (0,1,0), \quad e_3 = (0,0,1) \]
+
+### **Example in \(\mathbb{R}^2\)**
+\[ \text{Basis } = \{(1,0), (0,1)\} \]
+
+### **Example in \(\mathbb{R}^3\)**
+\[ \text{Basis } = \{(1,0,0), (0,1,0), (0,0,1)\} \]
+
+### **Custom Basis**
+➡ Any set of linearly independent vectors that spans the space can be a basis.
+\[ \text{Example: } \{(1,1), (1,-1)\} \text{ is a basis for } \mathbb{R}^2 \]
+
+---
+
+## **3. Checking Basis in Python**
+
+### **Step 1: Import Libraries**
+```python
+import numpy as np
+from sympy import Matrix
+```
+
+### **Step 2: Define Vectors**
+```python
+v1 = np.array([1, 0])
+v2 = np.array([0, 1])
+```
+
+### **Step 3: Check if Vectors Form a Basis**
+```python
+A = np.column_stack((v1, v2))
+print("Matrix formed by basis vectors:")
+print(A)
+
+rank = np.linalg.matrix_rank(A)
+if rank == 2:
+    print("The vectors form a basis of R².")
+else:
+    print("The vectors do not form a basis.")
+```
+
+### **Output:**
+```
+Matrix formed by basis vectors:
+[[1 0]
+ [0 1]]
+The vectors form a basis of R².
+```
+
+➡ **Explanation:** The rank of the matrix formed by basis vectors is equal to the dimension of \(\mathbb{R}^2\), confirming they form a basis.
+
+---
+
+## **4. Converting a Vector to a Different Basis**
+
+### **Change of Basis Formula:**
+\[ v' = B^{-1} v \]
+Where:
+- \( v \) = vector in the original basis
+- \( B \) = matrix of new basis vectors
+- \( v' \) = vector in the new basis
+
+### **Python Implementation:**
+```python
+B = np.array([[1, 1], [1, -1]])  # New basis
+v = np.array([2, 3])  # Vector in standard basis
+
+B_inv = np.linalg.inv(B)
+v_new = B_inv @ v  # Compute new coordinates
+print("Vector in new basis:", v_new)
+```
+
+### **Output:**
+```
+Vector in new basis: [ 2.5  0.5]
+```
+➡ **Explanation:** The vector (2,3) in the standard basis is transformed into (2.5, 0.5) in the new basis.
+
+---
+
+## **5. Visualizing Basis Vectors**
+
+```python
+import matplotlib.pyplot as plt
+
+def plot_vectors(vectors, colors=['r', 'b'], labels=['v1', 'v2']):
+    for i, v in enumerate(vectors):
+        plt.quiver(0, 0, v[0], v[1], color=colors[i], angles='xy', scale_units='xy', scale=1, label=labels[i])
+    plt.xlim(-2, 2)
+    plt.ylim(-2, 2)
+    plt.axhline(0, color='black', linewidth=0.5)
+    plt.axvline(0, color='black', linewidth=0.5)
+    plt.grid()
+    plt.legend()
+    plt.show()
+
+v1 = [1, 1]
+v2 = [1, -1]
+plot_vectors([v1, v2])
+```
+
+
+
+---
+
+
 
 
