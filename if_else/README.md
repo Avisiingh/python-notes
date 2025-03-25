@@ -61,3 +61,4 @@ else:
     print("This item is NOT for sale.")  
     # (This branch will never run since for_sale is always True)
 
+
