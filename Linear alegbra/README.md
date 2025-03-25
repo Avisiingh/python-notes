@@ -1,13 +1,9 @@
-
----
-
-```md
 # **Vector Operations and Implementation in Python**
 
 This document covers important vector operations, including their mathematical formulas and Python implementations using `NumPy`.
 
 ---
-
+```md
 ## **1. Norm of a Vector (Magnitude)**  
 The norm (or magnitude) of a vector **A** is given by:  
 
