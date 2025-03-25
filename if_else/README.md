@@ -2,10 +2,6 @@
 # Conditional Statements in Python - Notes
 ## **1. Age-Based Conditions**
 
-```markdown
-
-
-
 
 ```python
 age = int(input("Enter your age: "))  # Takes user input and converts it to an integer.
