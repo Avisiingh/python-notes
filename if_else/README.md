@@ -82,8 +82,6 @@ else:
 ---
 # Simple Calculator in Python
 
-This script performs basic arithmetic operations based on user input.
-
 ---
 
 ## **Code Explanation**
