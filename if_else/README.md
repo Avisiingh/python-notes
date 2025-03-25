@@ -1,64 +1,89 @@
-# Conditional Statements in Python
+It looks like you want structured notes rather than a full Markdown file for GitHub. Here's a properly formatted version:
 
-This script demonstrates the use of conditional statements (`if-elif-else`) in Python.  
-It takes user input for age, food preference, and name, then prints appropriate messages based on the given conditions.
+---
 
-## **Code Explanation**
+```markdown
+# Conditional Statements in Python - Notes
+
+## **1. Age-Based Conditions**
+This part of the code checks the user's age and prints an appropriate message.
 
 ```python
-# Prompt user to enter their age
-age = int(input("Enter your age: "))  
+age = int(input("Enter your age: "))  # Takes user input and converts it to an integer.
 
-# Check different conditions based on the age entered
 if age >= 100:
     print("Namastey dada ji! You don't need to sign up. Please be safe and take rest, this is not for you.")  
-    # Example input: 105  
-    # Output: Namastey dada ji! You don't need to sign up. Please be safe and take rest, this is not for you.
 elif age >= 18:
     print("You are now signed up!")  
-    # Example input: 25  
-    # Output: You are now signed up!
 elif age < 0:
     print("You have not been born yet.")  
-    # Example input: -5  
-    # Output: You have not been born yet.
 else:
     print("You must be 18+ to sign up.")  
-    # Example input: 10  
-    # Output: You must be 18+ to sign up.
+```
+**Explanation:**
+- If `age >= 100`: Prints a message that the person does not need to sign up.
+- If `age >= 18`: Signs the user up.
+- If `age < 0`: Indicates an invalid age.
+- Else: The user is too young to sign up.
 
-# Asking user for a response about food
-response = input("Do you want some food? (y/n): ")  
+---
 
-if response.lower() == "y":  # Converts input to lowercase for better handling
+## **2. Food Preference Condition**
+This code asks the user if they want food and prints a response accordingly.
+
+```python
+response = input("Do you want some food? (y/n): ")  # Takes user input.
+
+if response.lower() == "y":  # Converts input to lowercase to avoid case mismatches.
     print("Here, have some food!")  
-    # Example input: y  
-    # Output: Here, have some food!
 else:
     print("No food for you!")  
-    # Example input: n  
-    # Output: No food for you!
+```
+**Explanation:**
+- If the user inputs `"y"` (case insensitive), it prints **"Here, have some food!"**
+- Otherwise, it prints **"No food for you!"**
 
-# Prompt user to enter their name
-name = input("Enter your name: ")  
+---
 
-if name.strip() == "":  # Using strip() to remove accidental spaces
+## **3. Name Input Handling**
+This code handles cases where a user may not enter a name.
+
+```python
+name = input("Enter your name: ")  # Takes user input.
+
+if name.strip() == "":  # The strip() function removes spaces to avoid blank input.
     print("You did not type your name!")  
-    # Example input: (empty)  
-    # Output: You did not type your name!
 else:
     print(f"Hello, {name}!")  
-    # Example input: Alice  
-    # Output: Hello, Alice!
+```
+**Explanation:**
+- If the user leaves the name blank, it prints **"You did not type your name!"**
+- Otherwise, it greets the user by name.
 
-# Check if an item is for sale
-for_sale = True  # Boolean variable
+---
+
+## **4. Item Availability Condition**
+This code checks whether an item is available for sale.
+
+```python
+for_sale = True  # Boolean variable indicating if the item is for sale.
 
 if for_sale:
     print("This item is for sale.")  
-    # Output: This item is for sale.
 else:
     print("This item is NOT for sale.")  
-    # (This branch will never run since for_sale is always True)
+```
+**Explanation:**
+- If `for_sale` is `True`, it prints **"This item is for sale."**
+- Otherwise, it prints **"This item is NOT for sale."**
+
+---
+
+## **Summary**
+- **`if-elif-else` statements** allow checking multiple conditions.
+- **Boolean conditions (`True` or `False`)** help in decision-making.
+- **Input handling (`input()`, `strip()`, `lower()`)** ensures smooth user interaction.
+
+---
 
 
