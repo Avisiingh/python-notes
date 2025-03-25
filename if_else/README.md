@@ -80,5 +80,39 @@ else:
 - **Input handling (`input()`, `strip()`, `lower()`)** ensures smooth user interaction.
 
 ---
+# Simple Calculator in Python
 
+This script performs basic arithmetic operations based on user input.
 
+---
+
+## **Code Explanation**
+
+```python
+# Taking operator input from the user
+operator = input("Enter your operator (+ - * /): ")
+
+# Taking two numerical inputs
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+
+# Performing operations based on the operator entered
+if operator == "+":
+    result = num1 + num2
+    print(round(result, 3))  # Rounds result to 3 decimal places
+
+elif operator == "-":
+    result = num1 - num2
+    print(round(result, 3))
+
+elif operator == "*":
+    result = num1 * num2
+    print(round(result, 3))
+
+elif operator == "/":
+    result = num1 / num2
+    print(round(result, 3))
+
+else:
+    print(f"{operator} is not a valid operator.")
+---
