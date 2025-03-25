@@ -1,7 +1,7 @@
 
 ---
 
-### **  vector_operations **
+###  vector_operations 
 ```md
 # **Vector Operations and Python Implementation**
 
