@@ -1,15 +1,22 @@
-# **Vector Operations and Implementation in Python**
-
-This document covers important vector operations, including their mathematical formulas and Python implementations using `NumPy`.
 
 ---
+
+### ** `vector_operations.md`**
 ```md
-## **1. Norm of a Vector (Magnitude)**  
-The norm (or magnitude) of a vector **A** is given by:  
+# **Vector Operations and Python Implementation**
 
-$$ ||A|| = \sqrt{A_1^2 + A_2^2 + A_3^2} $$
+This document explains various vector operations, their mathematical formulas, and how to implement them in Python using NumPy.
 
-### **Python Implementation:**
+---
+
+## **1. Norm (Magnitude) of a Vector**  
+The norm (or magnitude) of a vector **A** is given by:
+
+$$
+||A|| = \sqrt{A_1^2 + A_2^2 + A_3^2}
+$$
+
+### **Python Implementation**
 ```python
 import numpy as np
 
@@ -21,11 +28,13 @@ print("Norm of A:", norm_A)
 ---
 
 ## **2. Dot Product of Two Vectors**  
-The dot product of two vectors **A** and **B** is:  
+The dot product of vectors **A** and **B** is:
 
-$$ A \cdot B = A_1 B_1 + A_2 B_2 + A_3 B_3 $$
+$$
+A \cdot B = A_1 B_1 + A_2 B_2 + A_3 B_3
+$$
 
-### **Python Implementation:**
+### **Python Implementation**
 ```python
 A = np.array([3, 4, 5])
 B = np.array([1, 2, 3])
@@ -37,11 +46,13 @@ print("Dot Product:", dot_product)
 ---
 
 ## **3. Cosine of the Angle Between Two Vectors**  
-The cosine of the angle θ between two vectors is given by:  
+The cosine of the angle **θ** between vectors **A** and **B** is:
 
-$$ \cos{\theta} = \frac{A \cdot B}{||A|| \times ||B||} $$
+$$
+\cos{\theta} = \frac{A \cdot B}{||A|| \times ||B||}
+$$
 
-### **Python Implementation:**
+### **Python Implementation**
 ```python
 cos_theta = dot_product / (np.linalg.norm(A) * np.linalg.norm(B))
 print("Cosine of the Angle:", cos_theta)
@@ -50,11 +61,13 @@ print("Cosine of the Angle:", cos_theta)
 ---
 
 ## **4. Scalar Projection of A onto B**  
-The scalar projection of **A** onto **B** is:  
+The scalar projection of **A** onto **B** is:
 
-$$ \text{proj}_B A = \frac{A \cdot B}{||B||} $$
+$$
+\text{proj}_B A = \frac{A \cdot B}{||B||}
+$$
 
-### **Python Implementation:**
+### **Python Implementation**
 ```python
 scalar_proj = dot_product / np.linalg.norm(B)
 print("Scalar Projection of A onto B:", scalar_proj)
@@ -63,11 +76,13 @@ print("Scalar Projection of A onto B:", scalar_proj)
 ---
 
 ## **5. Vector Projection of A onto B**  
-The vector projection of **A** onto **B** is:  
+The vector projection of **A** onto **B** is:
 
-$$ \text{Proj}_B A = \left(\frac{A \cdot B}{||B||^2}\right) B $$
+$$
+\text{Proj}_B A = \left(\frac{A \cdot B}{||B||^2}\right) B
+$$
 
-### **Python Implementation:**
+### **Python Implementation**
 ```python
 vector_proj = (dot_product / np.linalg.norm(B)**2) * B
 print("Vector Projection of A onto B:", vector_proj)
@@ -76,11 +91,13 @@ print("Vector Projection of A onto B:", vector_proj)
 ---
 
 ## **6. Perpendicular Vectors Condition**  
-Two vectors **A** and **B** are **perpendicular** if their dot product is **zero**:  
+Two vectors **A** and **B** are **perpendicular** if:
 
-$$ A \cdot B = 0 \Rightarrow A \perp B $$
+$$
+A \cdot B = 0 \Rightarrow A \perp B
+$$
 
-### **Python Implementation:**
+### **Python Implementation**
 ```python
 if np.dot(A, B) == 0:
     print("Vectors are perpendicular.")
@@ -91,11 +108,13 @@ else:
 ---
 
 ## **7. Unit Vector**  
-A **unit vector** in the direction of **A** is:  
+A **unit vector** in the direction of **A** is:
 
-$$ \hat{A} = \frac{A}{||A||} $$
+$$
+\hat{A} = \frac{A}{||A||}
+$$
 
-### **Python Implementation:**
+### **Python Implementation**
 ```python
 unit_vector_A = A / np.linalg.norm(A)
 print("Unit Vector of A:", unit_vector_A)
@@ -106,9 +125,11 @@ print("Unit Vector of A:", unit_vector_A)
 ## **8. Angle Between Two Vectors (Using `arccos`)**  
 The angle **θ** between two vectors is:
 
-$$ \theta = \cos^{-1} \left(\frac{A \cdot B}{||A|| \times ||B||} \right) $$
+$$
+\theta = \cos^{-1} \left(\frac{A \cdot B}{||A|| \times ||B||} \right)
+$$
 
-### **Python Implementation:**
+### **Python Implementation**
 ```python
 theta = np.arccos(cos_theta)  # Angle in radians
 theta_degrees = np.degrees(theta)  # Convert to degrees
@@ -118,15 +139,7 @@ print("Angle between A and B in degrees:", theta_degrees)
 
 ---
 
-### **📌 Notes:**
-- `np.linalg.norm(A)` → Finds the **magnitude** of a vector.
-- `np.dot(A, B)` → Computes the **dot product** of two vectors.
-- `np.arccos(x)` → Computes **inverse cosine (cos⁻¹ x)** to find the **angle**.
-- `np.degrees(x)` → Converts **radians** to **degrees**.
-
----
-
-## **📝 Summary Table of Formulas**
+## **📝 Summary of Formulas**
 | Operation | Formula |
 |-----------|---------|
 | **Norm (Magnitude)** | \( ||A|| = \sqrt{A_1^2 + A_2^2 + A_3^2} \) |
@@ -140,6 +153,20 @@ print("Angle between A and B in degrees:", theta_degrees)
 
 ---
 
+## **How to Use This Markdown File**
+1. **Copy & Paste** this `.md` file into your GitHub repository.
+2. **Preview the file** on GitHub to see the properly formatted equations.
+3. **Run the Python code** to verify vector calculations.
 
+---
+
+### ✅ **Notes:**
+- **LaTeX equations** (`$$ ... $$`) work in **GitHub Markdown.**
+- `np.linalg.norm(A)` → Finds **vector magnitude**.
+- `np.dot(A, B)` → Computes **dot product**.
+- `np.arccos(x)` → Computes **inverse cosine (cos⁻¹ x)**.
+- `np.degrees(x)` → Converts **radians to degrees**.
+
+---
 
 
