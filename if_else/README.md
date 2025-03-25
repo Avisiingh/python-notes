@@ -1,12 +1,11 @@
-It looks like you want structured notes rather than a full Markdown file for GitHub. Here's a properly formatted version:
 
----
+# Conditional Statements in Python - Notes
+## **1. Age-Based Conditions**
 
 ```markdown
-# Conditional Statements in Python - Notes
 
-## **1. Age-Based Conditions**
-This part of the code checks the user's age and prints an appropriate message.
+
+
 
 ```python
 age = int(input("Enter your age: "))  # Takes user input and converts it to an integer.
